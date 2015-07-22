@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -10,7 +13,11 @@ function __autoload($class_name) {
     include 'lib/'.$class_name . '.php';
 }
 
-$object = new checkParametrs();
+$object = new checkParametrs('localhost', '1', '1', '1');
+$object->checkBD();
+$object->checkSession();
+$object->checkFiles();
+$object->checkMemcache();
 ?>
     </body>
 </html>
