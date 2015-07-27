@@ -13,11 +13,12 @@ function __autoload($class_name) {
     include 'lib/'.$class_name . '.php';
 }
 
-$object = new checkParametrs('localhost', '1', '1', '1');
-$object->checkBD();
-$object->checkSession();
+$object = new checkDB();
+echo $object->run();
+/*$object->checkSession();
 $object->checkFiles();
 $object->checkMemcache();
+$object->checkRedis();*/
 ?>
     </body>
 </html>
