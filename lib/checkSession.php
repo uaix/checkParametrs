@@ -31,7 +31,6 @@ class SessionException Extends Exception {
 				catch (SessionException $e){
                                 }
 			}else{
-				$this->getCode(self::sessionSetup);
 				$this->getCode(self::sessionSetuped);
 			}
         }

@@ -13,12 +13,26 @@
 function __autoload($class_name) {
     include 'lib/'.$class_name . '.php';
 }
-echo 'Текущая версия PHP: ' . phpversion().'<br>Короткие теги: '.  ini_get('SMTP').'<br>';
-echo $obj_session->run();
-/*$object->checkSession();
-$object->checkFiles();
-$object->checkMemcache();
-$object->checkRedis();*/
+function short_tags() {
+    if (ini_get('short_open_tag') == 1){
+        return 'включены';
+    }
+}
+echo 'Текущая версия PHP: ' . phpversion().'<br>Короткие теги: '.short_tags().'<br>';
+//TEST BD options
+$obj_DB = new checkDB();
+echo implode('<br>', $obj_DB->run()).'<br>';
+//TEST Files options
+$obj_files = new checkFiles();
+echo $obj_files->run().'<br>';
+//Session Test
+echo implode('<br>', $obj_session->run()).'<br>';
+//Memcache Test
+$obj_Memcache = new checkMemcache();
+echo implode('<br>',$obj_Memcache->run()).'<br>';
+//Redis Test
+$obj_Redis = new checkRedis();
+echo $obj_Redis ->run();
 ?>
     </body>
 </html>

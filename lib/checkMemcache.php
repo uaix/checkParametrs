@@ -11,9 +11,11 @@ class checkMemcache {
     const MEMCACHE_FOUND = 1;
     const MEMCACHE_NO_CONNECT = 2;
     const MEMCACHE_CONNECT = 3;
+    public $host = 'localhost';
+    public $port = 11211;
     public static $answersCode = array(
-        self::MEMCACHE_NOT_FOUND => 'Класс Memcache не найден',
-        self::MEMCACHE_FOUND => 'Класс Memcache найден',
+        self::MEMCACHE_NOT_FOUND => 'Memcache не найден',
+        self::MEMCACHE_FOUND => 'Memcache найден',
         self::MEMCACHE_NO_CONNECT => 'Memcache не подключен',
         self::MEMCACHE_CONNECT => 'Memcache подключен',
     );
@@ -34,7 +36,7 @@ class checkMemcache {
     function checkMemcacheConnect() {
         try{
             $memcache = new Memcache;
-            if (!$memcache->connect('localhost', 11211)){
+            if (!$memcache->connect($this->host, $this->port)){
             throw new MCException($this->getCode(self::MEMCACHE_NO_CONNECT));  
             }
             $this->getCode(self::MEMCACHE_CONNECT);
