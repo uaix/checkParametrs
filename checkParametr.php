@@ -1,9 +1,10 @@
 <?php
-session_start();
+	$obj_session = new CheckSession();
+	$obj_session->checkSession();
 ?>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Проверка хостинга на соответствие требованиям</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -12,9 +13,8 @@ session_start();
 function __autoload($class_name) {
     include 'lib/'.$class_name . '.php';
 }
-
-$object = new checkDB();
-echo $object->run();
+echo 'Текущая версия PHP: ' . phpversion().'<br>Короткие теги: '.  ini_get('SMTP').'<br>';
+echo $obj_session->run();
 /*$object->checkSession();
 $object->checkFiles();
 $object->checkMemcache();
