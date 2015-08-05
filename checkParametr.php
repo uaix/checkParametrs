@@ -18,7 +18,15 @@ function short_tags() {
         return 'включены';
     }
 }
-echo 'Текущая версия PHP: ' . phpversion().'<br>Короткие теги: '.short_tags().'<br>';
+function check_mb_strlen() {
+    if (function_exists('mb_strlen')) {
+        return 'подключена';
+    } else {
+        return 'не подключена';
+    }
+}
+echo 'Текущая версия PHP: ' . phpversion().'<br>Короткие теги: '.short_tags().'<br> Функция mb_strlen - '.check_mb_strlen().'<br>';
+
 //TEST BD options
 $obj_DB = new checkDB();
 echo implode('<br>', $obj_DB->run()).'<br>';
