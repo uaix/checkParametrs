@@ -1,16 +1,16 @@
 <?php
 class BDException Extends Exception {
 
-    function logErrors($errors) {
+    function logErrors() {
         echo parent::getMessage();
     }
 }
  class checkDB {
     
-    private $sql_login = '1';
-    private $sql_password = '1';
+    private $sql_login = '034745018_bort';
+    private $sql_password = 'c25283c7598KHj';
     private $sql_host = 'localhost';
-    private $sql_DB = '1';
+    private $sql_DB = 'bs197-web_bort';
     private $mysqli;
     private $table_name = 'MyGuests';
     private $table_name_2 = 'table_2';
@@ -25,7 +25,7 @@ class BDException Extends Exception {
     const ADD_EXT_INDEX = 6;
     
     public static $errors = array(
-            self::CONNECT_BD => 'Нет соединения с БД: ',
+            self::CONNECT_BD => '<br>Нет соединения с БД: ',
             self::CREATE_TABLE => 'БД создать не удалось',
             self::ADD_RECORD => 'НЕ удалось добавить запись в БД',
             self::EDIT_RECORD => 'Не удалось отредактировать запись в БД',
@@ -57,7 +57,7 @@ class BDException Extends Exception {
         }
         catch (BDException $e){
             
-	$e->logErrors($this->count_error);
+	$e->logErrors();
         }
     }
     

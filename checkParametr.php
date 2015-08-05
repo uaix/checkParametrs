@@ -1,5 +1,5 @@
 <?php
-	$obj_session = new CheckSession();
+	$obj_session = new checkSession();
 	$obj_session->checkSession();
 ?>
 <html>
@@ -10,8 +10,9 @@
     </head>
     <body>
 <?php
+error_reporting(0);
 function __autoload($class_name) {
-    include 'lib/'.$class_name . '.php';
+    include dirname(__FILE__).DIRECTORY_SEPARATOR.'lib/'.$class_name . '.php';
 }
 function short_tags() {
     if (ini_get('short_open_tag') == 1){

@@ -14,7 +14,7 @@ class checkFiles {
     );
     public $answer = '';
             function checkFiles() {
-        $path = realpath($_SERVER['DOCUMENT_ROOT'].'../../');
+        $path = dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..';
         try {
             if(file_put_contents($path.'/test.txt', 'test_content')===FALSE){
                 throw new FilesException($this->getCode(self::TEST_FAILED));

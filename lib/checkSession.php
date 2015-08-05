@@ -6,7 +6,7 @@ class SessionException Extends Exception {
     }
          
  }
- class CheckSession {
+ class checkSession {
      const sessionFailed = 0;
      const sessionSetup = 1;
      const sessionSetuped = 2;
